@@ -123,8 +123,8 @@ const filterFruits = () => {
   let minWeight = parseInt(minWeightInput.value);
   let maxWeight = parseInt(maxWeightInput.value);
     // validation data
-  const validation = minWeight || maxWeight || minWeight < maxWeight;
-  if (!validation) {
+  const validation = minWeight > maxWeight || !minWeight || !maxWeight;
+  if (validation) {
     minWeight = Math.min(...weightArr);
     maxWeight = Math.max(...weightArr);
     minWeightInput.value = minWeight;
